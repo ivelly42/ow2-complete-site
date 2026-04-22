@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      ;(() => {
+        const locationRef = window.location
+        const segments = locationRef.pathname.split('/').filter(Boolean)
+        const basePath = segments.length > 0 ? `/${segments[0]}/` : '/'
+        const appPath = `/${segments.slice(1).join('/')}` || '/'
+        const redirectUrl = new URL(basePath, locationRef.origin)
+
+        redirectUrl.searchParams.set('__pc_path', appPath === '/' ? '/' : appPath)
+
+        if (locationRef.search.length > 1) {
+          redirectUrl.searchParams.set('__pc_search', locationRef.search.slice(1))
+        }
+
+        if (locationRef.hash.length > 1) {
+          redirectUrl.searchParams.set('__pc_hash', locationRef.hash.slice(1))
+        }
+
+        locationRef.replace(redirectUrl.toString())
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

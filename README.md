@@ -31,6 +31,7 @@ npm run build
 ## 참고 문서
 
 - `DESIGN.md`: 디자인 시스템
+- `KNOWLEDGE_BASE_IA.md`: v2 지식 베이스 IA 및 탐색 구조 설계
 - `CORE_SCREEN_VISUAL_POLICY.md`: 핵심 화면 비주얼 폴리시
 - `VISUAL_REVIEW_CHECKLIST.md`: 엔지니어/디자인 공통 리뷰 체크리스트
 - `EXECUTION_PLAN.md`: CTO 실행/채용/로드맵 문서

@@ -1,3 +1,6 @@
+// Legacy staging data only. The live v2 entity metadata source of truth is `../siteContent.ts`.
+// Do not wire new detail-meta or verification UI to this file without an explicit migration.
+
 export type NavItem = {
   label: string
   href: string

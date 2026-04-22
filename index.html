@@ -18,6 +18,25 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      ;(() => {
+        const params = new URLSearchParams(window.location.search)
+        const redirectedPath = params.get('__pc_path')
+
+        if (!redirectedPath) {
+          return
+        }
+
+        const redirectedSearch = params.get('__pc_search')
+        const redirectedHash = params.get('__pc_hash')
+        const basePath = window.location.pathname.replace(/\/$/, '')
+        const nextPath = `${basePath}${redirectedPath}`
+        const nextSearch = redirectedSearch ? `?${redirectedSearch}` : ''
+        const nextHash = redirectedHash ? `#${redirectedHash}` : ''
+
+        window.history.replaceState(null, '', `${nextPath}${nextSearch}${nextHash}`)
+      })()
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
